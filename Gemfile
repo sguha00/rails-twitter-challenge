@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'angularjs-rails'
 gem 'font-awesome-sass', '~> 4.2.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,7 +38,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'quiet_assets'
+end
 gem 'rake', '~> 10.3.2'
 
 # Use debugger
