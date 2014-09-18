@@ -37,12 +37,13 @@ set :deploy_via, :remote_cache
 # set :keep_releases, 5
 
 namespace :deploy do
+  SSHKit.config.command_map[:rake]  = "bundle exec rake"
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
@@ -57,4 +58,15 @@ namespace :deploy do
     end
   end
 
+  after :restart, :ensure_alive do
+    roles(:web).each do |server|
+      run_locally do
+        cmd = "curl -silent http://#{server.hostname} >/dev/null"
+        execute cmd
+      end
+    end
+  end
+  
+  after :finishing, 'deploy:cleanup'
+#  after 'deploy:publishing', 'deploy:restart'
 end
