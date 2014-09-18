@@ -1,7 +1,9 @@
 .col-md-5{:"ng-controller"=>"TweetsController"}
   %h3 Find a user
   %form.form-inline{:"ng-submit" => "getTweets()"}
-    %input.form-control{ :type => 'text', :"ng-model" => "username", :size => 30, :placeholder => "username" }
+    .input-group
+      .input-group-addon @
+      %input.form-control{ :type => 'text', :"ng-model" => "username", :size => 30, :placeholder => "username" }
     %input.btn.btn-default{:type => 'submit', :value => 'Submit', :"ng-disabled" => "processing"}
     %i.fa.fa-spinner.fa-spin{:"ng-show" => "processing"}
 
@@ -18,9 +20,12 @@
   %h3 Common followers
   
   %form.form-inline{:"ng-submit" => "getFollowers()"}
-    %input.form-control{ :type => 'text', :"ng-model" => "username1", :size => 20, :placeholder => "first user" }
-    &
-    %input.form-control{ :type => 'text', :"ng-model" => "username2", :size => 20, :placeholder => "second user" }
+    .input-group
+      .input-group-addon @
+      %input.form-control{ :type => 'text', :"ng-model" => "username1", :size => 15, :placeholder => "first user" }
+    .input-group
+      .input-group-addon @
+      %input.form-control{ :type => 'text', :"ng-model" => "username2", :size => 15, :placeholder => "second user" }
     %input.btn.btn-default{:type => 'submit', :value => 'Submit', :"ng-disabled" => "processing"}
     %i.fa.fa-spinner.fa-spin{:"ng-show" => "processing"}
 
