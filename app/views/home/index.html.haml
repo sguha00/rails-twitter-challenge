@@ -2,7 +2,7 @@
   %h3 Display a user's tweets
   %form.form-inline{:"ng-submit" => "getTweets()"}
     %input.form-control{ :type => 'text', :"ng-model" => "username", :size => 30, :placeholder => "username" }
-    %input.btn.btn-default{:type => 'submit', :value => 'Submit'}
+    %input.btn.btn-default{:type => 'submit', :value => 'Submit', :"ng-disabled" => "processing"}
     %i.fa.fa-spinner.fa-spin{:"ng-show" => "processing"}
 
   %p.text-danger{:"ng-show" => "error"}
@@ -21,7 +21,7 @@
     %input.form-control{ :type => 'text', :"ng-model" => "username1", :size => 20, :placeholder => "first user" }
     &
     %input.form-control{ :type => 'text', :"ng-model" => "username2", :size => 20, :placeholder => "second user" }
-    %input.btn.btn-default{:type => 'submit', :value => 'Submit'}
+    %input.btn.btn-default{:type => 'submit', :value => 'Submit', :"ng-disabled" => "processing"}
     %i.fa.fa-spinner.fa-spin{:"ng-show" => "processing"}
 
   %p.text-danger{:"ng-show" => "error"}
