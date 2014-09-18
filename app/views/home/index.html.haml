@@ -1,5 +1,5 @@
 .col-md-5{:"ng-controller"=>"TweetsController"}
-  %h3 Display a user's tweets
+  %h3 Find a user
   %form.form-inline{:"ng-submit" => "getTweets()"}
     %input.form-control{ :type => 'text', :"ng-model" => "username", :size => 30, :placeholder => "username" }
     %input.btn.btn-default{:type => 'submit', :value => 'Submit', :"ng-disabled" => "processing"}
@@ -15,7 +15,7 @@
     
   
 .col-md-6.col-md-offset-1{:"ng-controller"=>"FollowersController"}
-  %h3 Find common followers
+  %h3 Common followers
   
   %form.form-inline{:"ng-submit" => "getFollowers()"}
     %input.form-control{ :type => 'text', :"ng-model" => "username1", :size => 20, :placeholder => "first user" }
