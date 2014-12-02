@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'my_app_name'
+set :application, 'rails-twitter-challenge'
 set :repo_url, 'git@github.com:sguha00/rails-twitter-challenge.git'
 
 # Default branch is :master
@@ -67,6 +67,5 @@ namespace :deploy do
     end
   end
   
-  after :finishing, 'deploy:cleanup'
-#  after 'deploy:publishing', 'deploy:restart'
+  after :finishing, :cleanup
 end
